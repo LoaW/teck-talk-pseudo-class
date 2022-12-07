@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>Pseudo-Class</title>
+    </head>
+    <body>
+        <header>
+            <h1>Pseudo-Class :has()</h1>
+        </header>
+        <main>
+            <section class="has">
+                <h2>La pseudo-class :has()</h2>
+                <p>
+                    Permet de cibler un élément si au moins un des sélecteurs
+                    passés en paramètre correspond à l'élément (selon la portée,
+                    :scope, de l'élément).
+                </p>
+                <div class="exemple">
+                    <h3>Use case:</h3>
+                    <div class="has__ex1">
+                        <div class="has__ex1__css css">
+                            <p class="comments">
+                                // Cibler uniquement les éléments de la liste
+                                qui ont une sous liste.
+                            </p>
+                            <code> li:has(li){ color: green; } </code>
+                        </div>
+                        <div class="has__ex1__render render">
+                            <ul>
+                                <li>
+                                    Élément de liste 1
+                                    <ul>
+                                        <li>Sous-élément de liste 1</li>
+                                        <li>Sous-élément de liste 2</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Élément de liste 2
+                                    <ul>
+                                        <li>Sous-élément de liste 3</li>
+                                        <li>Sous-élément de liste 4</li>
+                                    </ul>
+                                </li>
+                                <li>Élément de liste 3</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="has__ex2">
+                        <div class="has__ex2__css css">
+                            <p class="comments">
+                                // Sélectionne tous les éléments li qui
+                                contiennent un élément span enfant et applique
+                                une bordure rouge aux éléments sélectionnés.
+                            </p>
+                            <code>
+                                li:has(span) { border: 1px solid red; }
+                            </code>
+                        </div>
+                        <div class="has__ex2__render render">
+                            <ul>
+                                <li>Voiture 1</li>
+                                <li>Voiture 2</li>
+                                <li>Voiture 3 <span>Indisponible</span></li>
+                                <li>Voiture 4</li>
+                                <li>Voiture 5</li>
+                                <li>Voiture 6 <span>Indisponible</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="has__ex3">
+                        <div class="has__ex3__css css">
+                            <p class="comments">
+                                // Sélectionne tous les éléments li qui
+                                contiennent un élément span enfant et applique
+                                une bordure rouge aux éléments sélectionnés.
+                            </p>
+                            <code>
+                                .article:has(img){ p{ display: none; } }
+                            </code>
+                        </div>
+                        <div class="has__ex3__render render">
+                            <div class="article-container">
+                                <div class="article">
+                                    <h3 class="article-title">
+                                        Titre de l'article 1
+                                    </h3>
+                                    <p class="article-body">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Sed non risus.
+                                        Suspendisse lectus tortor, dignissim sit
+                                        amet, adipiscing nec, ultricies sed,
+                                        dolor. Cras elementum ultrices diam.
+                                    </p>
+                                    <img
+                                        class="article-image"
+                                        src="https://picsum.photos/300/200?random=1"
+                                        alt="Image de l'article 1"
+                                    />
+                                </div>
+                                <div class="article">
+                                    <h3 class="article-title">
+                                        Titre de l'article 2
+                                    </h3>
+                                    <p class="article-body">
+                                        Lorem ipsum dolor sit amet consectetur,
+                                        adipisicing elit. Iste asperiores
+                                        corporis ipsam, aut excepturi
+                                        reiciendis, nisi voluptatem deleniti
+                                        sequi, suscipit sit libero. Quo tenetur
+                                        corrupti omnis. Aut sit recusandae neque
+                                        perspiciatis eum adipisci id consectetur
+                                        quisquam facere repellat voluptas earum
+                                        aspernatur iusto ducimus, ratione quam!
+                                        Animi pariatur alias quidem elo!
+                                    </p>
+                                </div>
+                                <div class="article">
+                                    <h3 class="article-title">
+                                        Titre de l'article 3
+                                    </h3>
+                                    <p class="article-body">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Maxime fuga architecto
+                                        modi est hic, accusantium, eum debitis
+                                        ex nobis aut dolore quibusdam nulla qui
+                                        exercitationem libero? Debitis adipisci
+                                        aut minus.
+                                    </p>
+                                    <!-- insérez l'image ici -->
+                                    <img
+                                        class="article-image"
+                                        src="https://picsum.photos/300/200?random=2"
+                                        alt="Image de l'article 3"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="has__ex4">
+                        <div class="has__ex4__css css">
+                            <p class="comments">
+                                // Sélectionne tous les éléments li qui
+                                contiennent une classe .disponible. On utilise
+                                la pseudo-class :not() en supplément avec de
+                                cibler tous les éléments qui n'ont pas de class
+                                .disponible
+                            </p>
+                            <code>
+                                li:has(.disponible) { color: green; } <br />
+                                li:not(:has(.disponible)) { color: red; }
+                            </code>
+                        </div>
+                        <div class="has__ex4__render render">
+                            <ul>
+                                <li>Voiture 1 <span>Indisponible</span></li>
+                                <li>Voiture 2 <span>Indisponible</span></li>
+                                <li>
+                                    Voiture 3
+                                    <span class="disponible">Disponible</span>
+                                </li>
+                                <li>Voiture 4 <span>Indisponible</span></li>
+                                <li>
+                                    Voiture 5
+                                    <span class="disponible">Disponible</span>
+                                </li>
+                                <li>
+                                    Voiture 6
+                                    <span class="disponible">Disponible</span>
+                                </li>
+                                <li>Voiture 7 <span>Indisponible</span></li>
+                                <li>
+                                    Voiture 8
+                                    <span class="disponible">Disponible</span>
+                                </li>
+                                <li>
+                                    Voiture 9
+                                    <span class="disponible">Disponible</span>
+                                </li>
+                                <li>Voiture 10 <span>Indisponible</span></li>
+                                <li>Voiture 11 <span>Indisponible</span></li>
+                                <li>
+                                    Voiture 12
+                                    <span class="disponible">Disponible</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="has__ex4">
+                        <div class="has__ex4__css css">
+                            <p class="comments">
+                                // Sélectionne tous les éléments qui ne sont pas
+                                hover par la souris dès que l'on survole une
+                                image
+                            </p>
+                            <code>
+                                .image-gallery:has(img:hover) img:not(:hover)
+                                <br />{ scale: 0.8; opacity: 0.7; }
+                            </code>
+                        </div>
+                        <div class="has__ex4__render render">
+                            <div class="image-gallery">
+                                <img
+                                    src="https://images.unsplash.com/photo-1661335996027-0a65af891c27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQwNDU&ixlib=rb-1.2.1&q=80&w=400"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1661189626525-3d7ec5d3087c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQwNDU&ixlib=rb-1.2.1&q=80&w=400"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1660628504006-9416dd2a411f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQwNDU&ixlib=rb-1.2.1&q=80&w=400"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1662441896128-691f7ac658ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQwNDU&ixlib=rb-1.2.1&q=80&w=400"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1661880374687-4ce390284f86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQwNDU&ixlib=rb-1.2.1&q=80&w=400"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1661691111071-42c262ca061e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQwNDU&ixlib=rb-1.2.1&q=80&w=400"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1662117488030-b3f17accfa3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQxMTQ&ixlib=rb-1.2.1&q=80&w=400"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1661435805196-81136edfa297?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQxMTQ&ixlib=rb-1.2.1&q=80&w=400"
+                                    alt=""
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1660584658489-a15f806f463c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQxMTQ&ixlib=rb-1.2.1&q=80&w=400"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

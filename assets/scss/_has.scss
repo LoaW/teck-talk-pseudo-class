@@ -1,0 +1,82 @@
+.has {
+    &__ex1 {
+        border-bottom: 1px rgb(120, 120, 120) solid;
+        margin: 2em 0em;
+        &__render {
+            // ul li :has(li) {
+            //     color: green;
+            // }
+            li:has(li){
+                color: green;
+            }
+        }
+    }
+    &__ex2 {
+        border-bottom: 1px rgb(120, 120, 120) solid;
+        margin: 2em 0em;
+        &__render {
+            li:has(span) {
+                /* Applique une bordure rouge aux éléments sélectionnés */
+                border: 1px solid red;
+            }
+        }
+    }
+    &__ex3 {
+        border-bottom: 1px rgb(120, 120, 120) solid;
+        margin: 2em 0em;
+        &__render {
+            .article-container {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 2em;
+                .article {
+                    width: 30%;
+                    padding: 1em;
+                }
+                .article:has(img) {
+                    p {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    &__ex4 {
+        border-bottom: 1px rgb(120, 120, 120) solid;
+        margin: 2em 0em;
+        &__render {
+            li:has(.disponible) {
+                color: green;
+            }
+            li:not(:has(.disponible)) {
+                color: red;
+            }
+        }
+    }
+    &__ex4 {
+        border-bottom: 1px rgb(120, 120, 120) solid;
+        margin: 2em 0em;
+        &__render {
+            .image-gallery {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 50rem;
+                margin-inline: auto;
+              }
+              
+              .image-gallery > img {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+              
+                transition: scale 350ms ease, opacity 350ms linear;
+              }
+              
+              .image-gallery:has(img:hover) img:not(:hover) {
+                scale: 0.8;
+                opacity: 0.7;
+              }
+              
+        }
+    }
+}
