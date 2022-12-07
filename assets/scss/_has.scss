@@ -3,10 +3,7 @@
         border-bottom: 1px rgb(120, 120, 120) solid;
         margin: 2em 0em;
         &__render {
-            // ul li :has(li) {
-            //     color: green;
-            // }
-            li:has(li){
+            li:has(li) {
                 color: green;
             }
         }
@@ -16,7 +13,6 @@
         margin: 2em 0em;
         &__render {
             li:has(span) {
-                /* Applique une bordure rouge aux éléments sélectionnés */
                 border: 1px solid red;
             }
         }
@@ -53,7 +49,7 @@
             }
         }
     }
-    &__ex4 {
+    &__ex5 {
         border-bottom: 1px rgb(120, 120, 120) solid;
         margin: 2em 0em;
         &__render {
@@ -62,21 +58,64 @@
                 grid-template-columns: repeat(3, 1fr);
                 max-width: 50rem;
                 margin-inline: auto;
-              }
-              
-              .image-gallery > img {
+            }
+
+            .image-gallery > img {
                 width: 100%;
                 aspect-ratio: 1 / 1;
                 object-fit: cover;
-              
+
                 transition: scale 350ms ease, opacity 350ms linear;
-              }
-              
-              .image-gallery:has(img:hover) img:not(:hover) {
+            }
+
+            .image-gallery:has(img:hover) img:not(:hover) {
                 scale: 0.8;
                 opacity: 0.7;
-              }
-              
+            }
+        }
+    }
+    &__ex6 {
+        border-bottom: 1px rgb(120, 120, 120) solid;
+        margin: 2em 0em;
+        &__render {
+            form {
+                width: 500px;
+                padding: 15px;
+                margin: auto;
+                border: 1px solid rgb(92, 92, 92);
+                border-radius: 5px;
+                
+                
+                input[type="text"],
+                input[type="email"],
+                textarea {
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    margin-top: 6px;
+                    margin-bottom: 16px;
+                    resize: vertical;
+                }
+
+                input[type="submit"] {
+                    background-color: #4caf50;
+                    color: white;
+                    padding: 12px 20px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                input[type="submit"]:hover {
+                    background-color: #45a049;
+                }
+
+                .input-group:has(input:valid) {
+                    color: green;
+                }
+            }
         }
     }
 }

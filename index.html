@@ -145,7 +145,7 @@
                             <p class="comments">
                                 // Sélectionne tous les éléments li qui
                                 contiennent une classe .disponible. On utilise
-                                la pseudo-class :not() en supplément avec de
+                                la pseudo-class :not() en supplément afin de
                                 cibler tous les éléments qui n'ont pas de class
                                 .disponible
                             </p>
@@ -189,8 +189,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="has__ex4">
-                        <div class="has__ex4__css css">
+                    <div class="has__ex5">
+                        <div class="has__ex5__css css">
                             <p class="comments">
                                 // Sélectionne tous les éléments qui ne sont pas
                                 hover par la souris dès que l'on survole une
@@ -201,7 +201,7 @@
                                 <br />{ scale: 0.8; opacity: 0.7; }
                             </code>
                         </div>
-                        <div class="has__ex4__render render">
+                        <div class="has__ex5__render render">
                             <div class="image-gallery">
                                 <img
                                     src="https://images.unsplash.com/photo-1661335996027-0a65af891c27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI5OTQwNDU&ixlib=rb-1.2.1&q=80&w=400"
@@ -240,6 +240,54 @@
                                     alt=""
                                 />
                             </div>
+                        </div>
+                    </div>
+                    <div class="has__ex6">
+                        <div class="has__ex6__css css">
+                            <p class="comments">
+                                // Sélectionne les éléments inputs qui sont
+                                considérés comme :valid
+                            </p>
+                            <code>
+                                .input-group:has(input:valid) { color: green; }
+                            </code>
+                        </div>
+                        <div class="has__ex6__render render">
+                            <form>
+                                <div class="input-group">
+                                    <label for="name">Nom :</label><br />
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        required
+                                        minlength="3"
+                                        placeholder="Jean"
+                                    /><br />
+                                </div>
+                                <div class="input-group">
+                                    <label for="email">Email :</label><br />
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                        placeholder="jean@gmail.com"
+                                    /><br /><br />
+                                </div>
+                                <div class="input-group">
+                                    <label for="message">Message :</label><br />
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows="4"
+                                        cols="50"
+                                        placeholder="..."
+                                    ></textarea
+                                    ><br /><br />
+                                </div>
+
+                                <input type="submit" value="Envoyer" />
+                            </form>
                         </div>
                     </div>
                 </div>
